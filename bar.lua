@@ -77,7 +77,7 @@ for i = 1, 15 do
     end
     minetest.register_node("bedrock:bar_"..i, {
         drawtype = "nodebox",
-        tile_images = {"bedrock_bar_white.png", "bedrock_bar_white.png", texture},
+        tiles = {"bedrock_bar_white.png", "bedrock_bar_white.png", texture},
         paramtype = "light",
         groups = {unbreakable = 1},
         drop = "bedrock:bar",
@@ -94,7 +94,7 @@ end
 
 minetest.register_node("bedrock:bar", {
     description = "Bedrock Bar",
-    tile_images = {"bedrock_bar.png"},
+    tiles = {"bedrock_bar.png"},
     inventory_image = "bedrock_bar.png",
     wield_image = "bedrock_bar.png",
     node_placement_prediction = "",

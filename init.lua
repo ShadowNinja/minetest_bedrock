@@ -6,7 +6,6 @@ minetest.register_node("bedrock:bedrock", {
 	description = "Bedrock",
 	inventory_image = minetest.inventorycube("bedrock_bedrock.png"),
 	tiles = {"bedrock_bedrock.png"},
-	is_ground_content = true,
 	groups = {unbreakable=1},
 	sounds = default.node_sound_stone_defaults(),
 })
@@ -15,7 +14,6 @@ minetest.register_node("bedrock:concrete", {
 	description = "Unbreakable Concrete",
 	inventory_image = minetest.inventorycube("bedrock_concrete.png"),
 	tiles = {"bedrock_concrete.png"},
-	is_ground_content = true,
 	groups = {unbreakable=1},
 	sounds = default.node_sound_stone_defaults(),
 })
@@ -27,10 +25,30 @@ minetest.register_node("bedrock:glass", {
 	inventory_image = minetest.inventorycube("default_glass.png"),
 	paramtype = "light",
 	tiles = {"default_glass.png"},
-	is_ground_content = true,
 	groups = {unbreakable=1},
 	sounds = default.node_sound_glass_defaults(),
 })
+
+stairs.register_stair_and_slab("bedrock", "bedrock:bedrock",
+		{unbreakable=1},
+		{"bedrock_bedrock.png"},
+		"Bedrock stair",
+		"Bedrock slab",
+		default.node_sound_stone_defaults())
+
+stairs.register_stair_and_slab("unbreakable_concrete", "bedrock:concrete",
+		{unbreakable=1},
+		{"bedrock_concrete.png"},
+		"Unbreakable concrete stair",
+		"Unbreakabe concrete slab",
+		default.node_sound_stone_defaults())
+
+stairs.register_stair_and_slab("unbreakable_glass", "bedrock:glass",
+		{unbreakable=1},
+		{"default_glass.png"},
+		"Unbreakable glass stair",
+		"Unbreakabe glass slab",
+		default.node_sound_glass_defaults())
 
 minetest.register_tool("bedrock:pick", {
 	description = "Bedrock Pick",
