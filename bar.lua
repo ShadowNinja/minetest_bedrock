@@ -20,7 +20,7 @@ local function update_bar(pos)
     local sum = 0
     for i = 1, 4 do
         local node = minetest.env:get_node({x = pos.x + directions[i].x, y = pos.y + directions[i].y, z = pos.z + directions[i].z})
-        if (minetest.registered_nodes[node.name].walkable ~= false) or (minetest.get_item_group(node.name, "door") >= 1) then
+        if minetest.registered_nodes[node.name] and (minetest.registered_nodes[node.name].walkable ~= false) then
             sum = sum + 2 ^ (i - 1)
         end
     end
