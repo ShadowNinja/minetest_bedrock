@@ -1,6 +1,12 @@
 -- Bedrock mod by ShadowNinja
 
-dofile(minetest.get_modpath("bedrock") .. "/bar.lua")
+local modpath = minetest.get_modpath("bedrock")
+
+dofile(modpath.."/bar.lua")
+
+if minetest.setting_getbool("generate_bedrock") then
+	dofile(modpath.."/mapgen.lua")
+end
 
 minetest.register_node("bedrock:bedrock", {
 	description = "Bedrock",
@@ -60,3 +66,4 @@ minetest.register_tool("bedrock:pick", {
 		}
 	},
 })
+
